@@ -60,7 +60,7 @@ const getPosition = (orig, toAdd) => {
     return {x: orig.x + toAdd.x, y: orig.y + toAdd.y};
 }
 
-function solve_1(input) {
+function solve_1() {
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
             checkNeighbors({y: i, x: j});
@@ -86,7 +86,7 @@ function drawMap() {
 
 }
 
-function solve_2(input) {
+function solve_2() {
     let i = 0;
     console.log('before');
     drawMap();
