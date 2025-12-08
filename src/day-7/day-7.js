@@ -1,6 +1,7 @@
 const INPUT_FILE = 'input-day-7.txt';
 
 const {readFileSync} = require('../utils/file-reader')
+const { performance } = require("perf_hooks");
 
 function solve_1() {
     let splits = 0;
@@ -58,6 +59,16 @@ function solve_2() {
     }
     console.log('Solution Day 7 Part 2: ', buffer.reduce((a, b) => a + b, 0));
 }
+function measure(fn, label) {
+    const startTime = performance.now();
+    fn();
+    const endTime = performance.now();
 
-solve_1();
-solve_2();
+    const mem = process.memoryUsage().heapUsed / 1024 / 1024;
+
+    console.log(`${label} time: ${(endTime - startTime).toFixed(3)} ms`);
+    console.log(`${label} memory: ${mem.toFixed(2)} MB`);
+}
+
+measure(solve_1, 'solve_1')
+measure(solve_2, 'solve_2')
