@@ -85,7 +85,7 @@ function solve_1() {
     const machines = parseInput();
 
     let total = 0;
-    machines.forEach((m, idx) => {
+    machines.forEach((m) => {
         const presses = minPressesForMachine(m.numLights, m.buttons, m.targetMask);
         total += presses;
     });
